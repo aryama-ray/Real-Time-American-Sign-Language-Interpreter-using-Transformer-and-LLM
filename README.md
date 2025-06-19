@@ -55,3 +55,46 @@ Custom prompt structure for visual, ASL-style sentence construction
 
 Output: Fluent, 5-word ASL-aligned English sentence
 
+---
+
+## 📈 Evaluation Metrics
+
+| Stage         | Metric | Score     |
+| ------------- | ------ | --------- |
+| Sign-to-Gloss | WER    | 72.85%    |
+| Gloss-to-Text | BLEU-1 | **70.71** |
+| Gloss-to-Text | BLEU-4 | **13.41** |
+
+Compared to:
+
+Camgoz et al. (BLEU-1: 47.26, BLEU-4: 22.38)
+
+Sincan et al. (BLEU-4: 9.12)
+
+---
+## 🧪 Training Details
+Framework: PyTorch
+
+Optimizer: AdamW, LR = 0.0005
+
+Scheduler: CosineAnnealingWarmRestarts
+
+Regularization: Gradient Clipping (0.5), Dropout (0.318)
+
+Epochs: 300–500
+
+Tuning: Optuna with 20 trials
+
+GPU: Trained on RTX 4090 (≈17 hours)
+
+## 📚 References
+MediaPipe: https://google.github.io/mediapipe/
+
+GISLR Dataset: https://www.kaggle.com/competitions/asl-signs
+
+Camgoz et al., CVPR 2020
+
+Sincan et al., arXiv 2024
+
+GPT-4: OpenAI API
+
